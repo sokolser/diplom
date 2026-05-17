@@ -1,0 +1,13 @@
+[run]
+branch = True
+source = backend
+omit =
+    backend/change_notice_pdf.py
+    backend/gigachat_service.py
+    backend/models.py
+    backend/parser.py
+
+[report]
+show_missing = True
+skip_covered = False
+fail_under = 70

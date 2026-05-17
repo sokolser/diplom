@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      GIGACHAT_CLIENT_ID: ${GIGACHAT_CLIENT_ID:-}
+      GIGACHAT_CLIENT_SECRET: ${GIGACHAT_CLIENT_SECRET:-}
+      GIGACHAT_SCOPE: ${GIGACHAT_SCOPE:-GIGACHAT_API_PERS}
+      GIGACHAT_MODEL: ${GIGACHAT_MODEL:-GigaChat}
+      GIGACHAT_VERIFY_SSL_CERTS: ${GIGACHAT_VERIFY_SSL_CERTS:-true}
+      GIGACHAT_TIMEOUT: ${GIGACHAT_TIMEOUT:-60}
+      CHANGE_NOTICE_PDF_FONT_REGULAR: ${CHANGE_NOTICE_PDF_FONT_REGULAR:-}
+      CHANGE_NOTICE_PDF_FONT_BOLD: ${CHANGE_NOTICE_PDF_FONT_BOLD:-}
+    volumes:
+      - ./backend/fonts:/app/fonts:ro
+      - ./backend/certs:/app/certs:ro
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
