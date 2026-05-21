@@ -1,6 +1,10 @@
 # Система автоматизации извещений об изменении
 
 
+[![CI](https://github.com/sokolser/diplom/actions/workflows/ci.yml/badge.svg)](https://github.com/sokolser/diplom/actions/workflows/ci.yml)
+![Coverage](https://img.shields.io/badge/coverage-%3E%3D70%25-brightgreen)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 Веб-сервис для анализа двух версий PDF конструкторской документации, формирования текстового блока извещения об изменении и выгрузки извещения в PDF.
 
 Состав проекта:
